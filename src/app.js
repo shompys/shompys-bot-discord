@@ -1,17 +1,20 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import {Client, Intents} from 'discord.js';
+import { commandsBotInit, commandsGeneric } from './controllers/command.controllers';
 
-const client = new Client({
-    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGE]
-});
+const client = new Client();
+// {
+//     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGE]
+// }
 
-client.on('message', (message) => {
-    console.log(message)
-})
+//client bot
+client.on('ready', commandsBotInit(client));
 
-const {DISCORD_ACCESS_TOKEN} = process.env
+// client discord
+client.on('message', commandsGeneric);
 
-client.login(DISCORD_ACCESS_TOKEN);
+
+client.login(process.env.DISCORD_ACCESS_TOKEN);
 
 export default client;
