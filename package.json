@@ -6,8 +6,8 @@
   "scripts": {
     "build": "babel src --out-dir build",
     "dev": "nodemon src/index.js --exec babel-node",
-    "start": "node build/index.js",
-    "heroku-start" : "npm run build && npm start"
+    "heroku-postbuild" : "npm install",
+    "start" : "babel-node index.js"
   },
   "keywords": [],
   "author": "Jonathan Gomez",
