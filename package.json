@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir build",
     "dev": "nodemon src/index.js --exec babel-node",
-    "heroku-postbuild" : "npm install",
+    "heroku-postbuild" : "babel src --out-dir build",
     "start" : "node build/index.js"
   },
   "keywords": [],
